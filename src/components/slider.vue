@@ -171,6 +171,7 @@ export default {
         }
         // 遍历子集
         let $sliderChildren = $slider.children[0].children
+        lastPage =  (lastPage>=$sliderChildren.length)? $sliderChildren.length-1 : lastPage;
         let offsetLeft = $sliderChildren[lastPage].offsetLeft
         if (this.options.loop) {
           offsetLeft = $sliderChildren[lastPage].offsetLeft
@@ -641,6 +642,7 @@ export default {
             sliderItem[currentPage + loopedSlides].classList.add('slider-active-copy')
           }
           let lastPage = currentPage < 0 ? (this.pagenums || sliderLength) + currentPage : 0 + currentPage - (this.pagenums || sliderLength)
+          lastPage = (lastPage >= children.length)? children.length - 1: lastPage
           children[lastPage].addActive()
         } else {
           for (let index = 0; index < sliderActiveCopy.length; index++) {
