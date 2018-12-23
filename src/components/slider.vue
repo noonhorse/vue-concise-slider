@@ -171,7 +171,7 @@ export default {
         }
         // 遍历子集
         let $sliderChildren = $slider.children[0].children
-        lastPage = lastPage>$sliderChildren.length? $sliderChildren.length: lastPage
+        if(lastPage>$sliderChildren.length) return 0
         let offsetLeft = $sliderChildren[lastPage].offsetLeft
         if (this.options.loop) {
           offsetLeft = $sliderChildren[lastPage].offsetLeft
